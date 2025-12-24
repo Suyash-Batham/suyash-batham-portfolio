@@ -2,7 +2,7 @@
 
 A modern, interactive React portfolio showcasing projects, games, skills, and a contact form with submission management. Built to impress FAANG companies and startups.
 
-**Live Demo:** [Coming Soon](#) | **GitHub:** [suyash-batham-portfolio](https://github.com/Suyash-Batham/suyash-batham-portfolio)
+**Live Demo:** [View Live Site](https://suyashbatham-dev.vercel.app/) | **GitHub:** [suyash-batham-portfolio](https://github.com/Suyash-Batham/suyash-batham-portfolio)
 
 ---
 
