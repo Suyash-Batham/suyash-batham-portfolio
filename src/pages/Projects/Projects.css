@@ -1,0 +1,349 @@
+.projects-container {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+/* Header */
+.projects-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.projects-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.projects-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.app.dark .projects-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Projects Grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Project Card */
+.project-card {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.app.dark .project-card {
+  background: rgba(18, 18, 18, 0.7);
+  border-color: rgba(129, 140, 248, 0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+
+.card-header {
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  padding-bottom: 0.75rem;
+}
+
+.project-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.app.dark .project-title {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project-desc {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.6;
+}
+
+.app.dark .project-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Features Section */
+.project-details {
+  flex: 1;
+}
+
+.details-heading {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.app.dark .details-heading {
+  color: #818cf8;
+}
+
+.details-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: none;
+}
+
+.details-list li {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.app.dark .details-list li {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.details-list li:before {
+  content: "✓";
+  position: absolute;
+  left: -1rem;
+  color: #10b981;
+  font-weight: bold;
+}
+
+/* Tech Stack Section */
+.tech-stack {
+  border-top: 2px solid rgba(99, 102, 241, 0.15);
+  padding-top: 1rem;
+}
+
+.tech-heading {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.app.dark .tech-heading {
+  color: #818cf8;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6366f1;
+  transition: all 0.2s ease;
+}
+
+.app.dark .tech-tag {
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(168, 85, 247, 0.15));
+  border-color: rgba(129, 140, 248, 0.3);
+  color: #818cf8;
+}
+
+.tech-tag:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+/* View Project Button */
+.view-project-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.view-project-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.view-project-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: clamp(1.5rem, 3vw, 2rem) 1rem;
+  }
+
+  .projects-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .details-list li {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-container {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .projects-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .projects-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1rem);
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .details-list {
+    padding-left: 1rem;
+  }
+
+  .details-list li {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-header {
+    margin-bottom: 2rem;
+  }
+
+  .projects-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .project-card {
+    padding: 0.95rem;
+    gap: 0.75rem;
+  }
+
+  .card-header {
+    padding-bottom: 0.5rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+  }
+
+  .details-heading,
+  .tech-heading {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .view-project-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}

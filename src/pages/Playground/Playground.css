@@ -1,0 +1,306 @@
+.playground-container {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+/* Header */
+.playground-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.playground-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.playground-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.app.dark .playground-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Games Grid */
+.games-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+}
+
+/* Game Card */
+.game-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.app.dark .game-card {
+  background: rgba(18, 18, 18, 0.7);
+  border-color: rgba(129, 140, 248, 0.2);
+}
+
+.game-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+
+.game-card:active {
+  transform: translateY(-8px);
+}
+
+.game-icon {
+  font-size: clamp(3rem, 6vw, 4rem);
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.game-name {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.app.dark .game-name {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.game-description {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.app.dark .game-description {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.game-functionality {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: rgba(99, 102, 241, 0.08);
+  border-radius: 8px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app.dark .game-functionality {
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.functionality-label {
+  font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+  color: #6366f1;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.app.dark .functionality-label {
+  color: #818cf8;
+}
+
+.game-cta {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: #6366f1;
+  transition: all 0.3s ease;
+}
+
+.app.dark .game-cta {
+  color: #818cf8;
+}
+
+.game-card:hover .game-cta {
+  color: #a855f7;
+  transform: translateX(4px);
+}
+
+/* Game View */
+.game-view {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50px;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.app.dark .back-button {
+  background: rgba(129, 140, 248, 0.1);
+  border-color: rgba(129, 140, 248, 0.3);
+  color: #818cf8;
+}
+
+.back-button:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateX(-4px);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .playground-container {
+    padding: clamp(1.5rem, 3vw, 2rem) 1rem;
+  }
+
+  .playground-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .playground-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .playground-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .game-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .playground-container {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .playground-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .playground-subtitle {
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .game-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .game-icon {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .game-name {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+  }
+
+  .game-description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .playground-header {
+    margin-bottom: 2rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .game-card {
+    padding: 1.15rem;
+  }
+
+  .game-icon {
+    font-size: 3rem;
+  }
+
+  .game-name {
+    font-size: 1.1rem;
+  }
+
+  .back-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}

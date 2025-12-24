@@ -1,0 +1,33 @@
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.skills span {
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+  border: 2px solid currentColor;
+  border-radius: 20px;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.skills span:hover {
+  background: currentColor;
+  color: inherit;
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .skills {
+    gap: 0.5rem;
+  }
+
+  .skills span {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
