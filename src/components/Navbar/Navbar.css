@@ -142,6 +142,13 @@
   transform: scale(1.1);
 }
 
+.app.dark .theme-toggle {
+  background-color: aliceblue;
+}
+.app.dark .theme-toggle:hover {
+  background-color: aliceblue;
+}
+
 /* Mobile Controls */
 .nav-mobile-controls {
   display: flex;
@@ -169,11 +176,13 @@
   transition: all 0.3s ease;
   padding: 0;
   line-height: 1;
+  background-color: aliceblue;
 }
 
 .menu-toggle:hover {
   background: rgba(99, 102, 241, 0.2);
   transform: scale(1.1);
+  background-color: aliceblue;
 }
 
 .menu-toggle:active {
