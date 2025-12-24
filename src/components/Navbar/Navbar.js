@@ -13,6 +13,10 @@ export default function Navbar({ theme, setTheme }) {
     setMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -42,7 +46,7 @@ export default function Navbar({ theme, setTheme }) {
         {/* Desktop Nav */}
         <div className="nav-desktop">
           {links.map((link) => (
-            <Link key={link.href} to={link.href} className="nav-link">
+            <Link key={link.href} to={link.href} className="nav-link" onClick={scrollToTop}>
               {link.label}
             </Link>
           ))}
@@ -83,7 +87,10 @@ export default function Navbar({ theme, setTheme }) {
                 key={link.href}
                 to={link.href}
                 className="mobile-nav-link"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  scrollToTop();
+                }}
               >
                 {link.label}
               </Link>

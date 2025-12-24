@@ -4,6 +4,10 @@ import "./Footer.css";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const quickLinks = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
@@ -58,7 +62,7 @@ export default function Footer() {
             <ul className="footer-links">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="footer-link">
+                  <Link to={link.path} className="footer-link" onClick={scrollToTop}>
                     {link.label}
                   </Link>
                 </li>
@@ -112,7 +116,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="footer-credits right-aligned">
+          <div className="footer-credits">
             <p>
               Crafted with <span className="heart">❤️</span> No AI was harmed in the making of this footer (maybe).
             </p>

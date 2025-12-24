@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
@@ -13,6 +13,12 @@ import "./App.css";
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const location = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className={`app ${theme}`}>
