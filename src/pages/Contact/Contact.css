@@ -472,7 +472,7 @@
   }
 
   .contact-info-item {
-    flex-direction: column;
+    /* flex-direction: column; */
     text-align: center;
     padding: 1.25rem;
   }
