@@ -8,6 +8,7 @@ import Skills from "./pages/Skills/Skills";
 import Projects from "./pages/Projects/Projects";
 import Playground from "./pages/Playground/Playground";
 import Contact from "./pages/Contact/Contact";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import NotFound from "./pages/NotFound/Notfound";
 import "./App.css";
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/playground" element={<Playground />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

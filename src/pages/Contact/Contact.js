@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { submitContactForm } from "../../services/formService";
 import "./Contact.css";
 
 export default function Contact() {
@@ -11,25 +12,7 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [submissions, setSubmissions] = useState([]);
-  const [showSubmissions, setShowSubmissions] = useState(false);
-  const [selectedSubmission, setSelectedSubmission] = useState(null);
-  const [searchSubmission, setSearchSubmission] = useState("");
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
-  const [adminPassword, setAdminPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  // Load submissions from localStorage on mount
-  useEffect(() => {
-    const savedSubmissions = localStorage.getItem("contactSubmissions");
-    if (savedSubmissions) {
-      try {
-        setSubmissions(JSON.parse(savedSubmissions));
-      } catch (e) {
-        console.error("Failed to load submissions:", e);
-      }
-    }
-  }, []);
+  const [submitError, setSubmitError] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,102 +21,36 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      
-      // Create submission object with timestamp
-      const newSubmission = {
-        id: Date.now(),
-        ...form,
-        submittedAt: new Date().toLocaleString()
-      };
-      
-      // Save to localStorage
-      const updatedSubmissions = [newSubmission, ...submissions];
-      localStorage.setItem("contactSubmissions", JSON.stringify(updatedSubmissions));
-      setSubmissions(updatedSubmissions);
-      
-      console.log("Form submitted:", newSubmission);
+    setSubmitError(null);
+
+    // Validate form
+    if (!form.name || !form.email || !form.subject || !form.message) {
+      setSubmitStatus("error");
+      setSubmitError("Please fill in all fields");
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+
+    // Submit to Firebase
+    const result = await submitContactForm({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim()
+    });
+
+    if (result.success) {
       setSubmitStatus("success");
       setForm({ name: "", email: "", subject: "", message: "" });
       setTimeout(() => setSubmitStatus(null), 3000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleDeleteSubmission = (id) => {
-    if (window.confirm("Delete this submission?")) {
-      const updatedSubmissions = submissions.filter((sub) => sub.id !== id);
-      localStorage.setItem("contactSubmissions", JSON.stringify(updatedSubmissions));
-      setSubmissions(updatedSubmissions);
-      setSelectedSubmission(null);
-    }
-  };
-
-  const handleClearAll = () => {
-    if (window.confirm("Clear all submissions? This cannot be undone.")) {
-      localStorage.removeItem("contactSubmissions");
-      setSubmissions([]);
-      setSelectedSubmission(null);
-      setShowSubmissions(false);
-    }
-  };
-
-  const handleExportCSV = () => {
-    if (submissions.length === 0) return;
-    
-    const headers = ["ID", "Name", "Email", "Subject", "Message", "Submitted At"];
-    const rows = submissions.map((sub) => [
-      sub.id,
-      `"${sub.name}"`,
-      sub.email,
-      `"${sub.subject}"`,
-      `"${sub.message.replace(/"/g, '""')}"`,
-      sub.submittedAt
-    ]);
-    
-    const csvContent = [headers, ...rows].map((row) => row.join(",")).join("\n");
-    const blob = new Blob([csvContent], { type: "text/csv" });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `contact-submissions-${Date.now()}.csv`;
-    a.click();
-  };
-
-  const filteredSubmissions = submissions.filter(
-    (sub) =>
-      sub.name.toLowerCase().includes(searchSubmission.toLowerCase()) ||
-      sub.email.toLowerCase().includes(searchSubmission.toLowerCase()) ||
-      sub.subject.toLowerCase().includes(searchSubmission.toLowerCase())
-  );
-
-  const handleAdminLogin = () => {
-    // Change this to your secure password
-    const ADMIN_PASSWORD = "portfolio_admin_2024";
-    
-    if (adminPassword === ADMIN_PASSWORD) {
-      setIsAdminAuthenticated(true);
-      setAdminPassword("");
-      setPasswordError("");
-      sessionStorage.setItem("adminAuth", "true");
     } else {
-      setPasswordError("Invalid password");
-      setAdminPassword("");
+      setSubmitStatus("error");
+      setSubmitError(result.error || "Failed to send message. Please try again.");
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
-  };
 
-  const handleAdminLogout = () => {
-    setIsAdminAuthenticated(false);
-    setShowSubmissions(false);
-    setSelectedSubmission(null);
-    sessionStorage.removeItem("adminAuth");
+    setIsSubmitting(false);
   };
 
   const contactInfo = [
@@ -239,7 +156,7 @@ export default function Contact() {
 
               {submitStatus === "error" && (
                 <div className="form-message error">
-                  ✕ Error sending message. Please try again.
+                  ✕ {submitError || "Error sending message. Please try again."}
                 </div>
               )}
 
@@ -314,218 +231,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      {/* Admin Access Button - Only show if not authenticated */}
-      {!isAdminAuthenticated && submissions.length > 0 && (
-        <div className="admin-access-button-container fade-in">
-          <button
-            className="admin-access-btn"
-            onClick={() => setShowSubmissions(!showSubmissions)}
-            title="Admin only"
-            aria-label="Admin dashboard"
-          >
-            🔒 Admin
-          </button>
-        </div>
-      )}
-
-      {/* Admin Password Modal */}
-      {!isAdminAuthenticated && showSubmissions && (
-        <div className="admin-modal-overlay" onClick={() => setShowSubmissions(false)}>
-          <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>🔐 Admin Access</h2>
-            <p>Enter your admin password to view submissions</p>
-            
-            <input
-              type="password"
-              placeholder="Enter admin password"
-              value={adminPassword}
-              onChange={(e) => setAdminPassword(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleAdminLogin()}
-              className="admin-password-input"
-              autoFocus
-              aria-label="Admin password"
-            />
-            
-            {passwordError && (
-              <p className="password-error">❌ {passwordError}</p>
-            )}
-            
-            <div className="admin-modal-buttons">
-              <button className="admin-login-btn" onClick={handleAdminLogin}>
-                Unlock
-              </button>
-              <button
-                className="admin-cancel-btn"
-                onClick={() => {
-                  setShowSubmissions(false);
-                  setAdminPassword("");
-                  setPasswordError("");
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Submissions Dashboard - Only show if authenticated */}
-      {isAdminAuthenticated && showSubmissions && (
-        <div className="submissions-dashboard">
-          <div className="submissions-header">
-            <h2 className="submissions-title">📊 Contact Form Submissions</h2>
-            <div className="submissions-header-actions">
-              <button
-                className="logout-btn"
-                onClick={handleAdminLogout}
-                aria-label="Logout from admin"
-                title="Logout"
-              >
-                🚪 Logout
-              </button>
-              <button
-                className="close-btn"
-                onClick={() => setShowSubmissions(false)}
-                aria-label="Close submissions dashboard"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <div className="submissions-controls">
-            <input
-              type="text"
-              placeholder="🔍 Search by name, email, or subject..."
-              value={searchSubmission}
-              onChange={(e) => setSearchSubmission(e.target.value)}
-              className="search-submissions-input"
-              aria-label="Search submissions"
-            />
-            <div className="submissions-actions">
-              <button
-                className="export-btn"
-                onClick={handleExportCSV}
-                disabled={submissions.length === 0}
-                aria-label="Export submissions as CSV"
-              >
-                📥 Export CSV
-              </button>
-              <button
-                className="clear-all-btn"
-                onClick={handleClearAll}
-                disabled={submissions.length === 0}
-                aria-label="Clear all submissions"
-              >
-                🗑️ Clear All
-              </button>
-            </div>
-          </div>
-
-          <div className="submissions-content">
-            <div className="submissions-list">
-              {filteredSubmissions.length === 0 ? (
-                <div className="no-submissions">
-                  {searchSubmission ? "No matching submissions found" : "No submissions yet"}
-                </div>
-              ) : (
-                filteredSubmissions.map((submission) => (
-                  <div
-                    key={submission.id}
-                    className={`submission-card ${
-                      selectedSubmission?.id === submission.id ? "selected" : ""
-                    }`}
-                    onClick={() => setSelectedSubmission(submission)}
-                    role="button"
-                    tabIndex="0"
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        setSelectedSubmission(submission);
-                      }
-                    }}
-                  >
-                    <div className="submission-summary">
-                      <h4 className="submission-name">{submission.name}</h4>
-                      <p className="submission-email">{submission.email}</p>
-                      <p className="submission-subject">{submission.subject}</p>
-                      <small className="submission-date">{submission.submittedAt}</small>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-
-            {selectedSubmission && (
-              <div className="submission-detail">
-                <div className="detail-header">
-                  <h3>Submission Details</h3>
-                  <button
-                    className="delete-submission-btn"
-                    onClick={() => handleDeleteSubmission(selectedSubmission.id)}
-                    aria-label="Delete submission"
-                    title="Delete this submission"
-                  >
-                    🗑️
-                  </button>
-                </div>
-
-                <div className="detail-field">
-                  <label>Name</label>
-                  <p>{selectedSubmission.name}</p>
-                </div>
-
-                <div className="detail-field">
-                  <label>Email</label>
-                  <p>
-                    <a href={`mailto:${selectedSubmission.email}`}>
-                      {selectedSubmission.email}
-                    </a>
-                  </p>
-                </div>
-
-                <div className="detail-field">
-                  <label>Subject</label>
-                  <p>{selectedSubmission.subject}</p>
-                </div>
-
-                <div className="detail-field">
-                  <label>Message</label>
-                  <p className="message-content">{selectedSubmission.message}</p>
-                </div>
-
-                <div className="detail-field">
-                  <label>Submitted At</label>
-                  <p>{selectedSubmission.submittedAt}</p>
-                </div>
-
-                <button
-                  className="copy-btn"
-                  onClick={() => {
-                    const text = `Name: ${selectedSubmission.name}\nEmail: ${selectedSubmission.email}\nSubject: ${selectedSubmission.subject}\nMessage: ${selectedSubmission.message}`;
-                    navigator.clipboard.writeText(text);
-                    alert("Copied to clipboard!");
-                  }}
-                  aria-label="Copy submission details"
-                >
-                  📋 Copy
-                </button>
-              </div>
-            )}
-          </div>
-
-          <div className="submissions-stats">
-            <div className="stat-box">
-              <span className="stat-number">{submissions.length}</span>
-              <span className="stat-label">Total</span>
-            </div>
-            <div className="stat-box">
-              <span className="stat-number">{filteredSubmissions.length}</span>
-              <span className="stat-label">Shown</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Background Elements */}
       <div className="skills-background">

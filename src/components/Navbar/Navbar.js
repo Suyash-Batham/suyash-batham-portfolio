@@ -55,7 +55,7 @@ export default function Navbar({ theme, setTheme }) {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? "🌙" : "☀️"}
+            {theme === "light" ? "☾" : "☀︎"}
           </button>
         </div>
 
@@ -66,7 +66,7 @@ export default function Navbar({ theme, setTheme }) {
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? "🌙" : "☀️"}
+            {theme === "light" ? "☾" : "☀︎"}
           </button>
           <button
             className="menu-toggle"
