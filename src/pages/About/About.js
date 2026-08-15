@@ -10,17 +10,16 @@ export default function About() {
       company: "Wipro Ltd. ( Blackstone Account )",
       period: "October 2022 - Present",
       description: [
-        "Build clean, responsive user interfaces using React, PHP, and modern CSS.",
-        "Develop custom WordPress themes and complex Gutenberg blocks from scratch.",
-        "Create dynamic content systems using templates, custom post types, and reusable components.",
-        "Integrate third-party tools and REST APIs to extend WordPress beyond default capabilities.",
-        "Implement ADA accessibility standards and performance best practices.",
-        "Improve cross-browser compatibility, including smooth experiences on iOS devices.",
-        "Design reusable data visualization components using Highcharts.",
-        "Track and analyze user behavior with Google Analytics 4.",
-        "Work with Digital Asset Management (DAM) systems to centralize and streamline media handling."
+        "Architected and built a comprehensive qualification and learning management system for Financial Advisors with structured quiz-based workflows, course modules, and email-based Salesforce access control granting permissions based on organizational role and tier.",
+        "Designed end-to-end data pipeline: collected raw user interaction payload data, integrated with Salesforce CRM for centralized management, leveraged enterprise connectors to push data to Snowflake for real-time analytics, and built data visualization components to monitor learner progress, completion rates, and performance metrics for stakeholder dashboards.",
+        "Architected cookie-based investor eligibility gating system using JavaScript, DOM Manipulation, and REST APIs to dynamically control access to investor-specific content.",
+        "Optimized 2 high-traffic production pages by implementing React-based incremental Load More functionality for 900+ profiles, reducing DOM rendering by 60% and improving FCP by 47%.",
+        "Developed 20+ reusable React and Gutenberg components using modern patterns, improving consistency across content-driven page development.",
+        "Implemented WCAG/ADA accessibility standards across 15+ components and resolved 50+ compliance issues; diagnosed cross-browser and iOS-specific frontend issues.",
+        "Integrated Google Analytics 4 and Google Tag Manager tracking for comprehensive user behavior analysis and performance monitoring.",
+        "Build clean, responsive user interfaces using React, PHP, and modern CSS with custom WordPress themes and complex Gutenberg blocks from scratch."
       ],
-      skills: ["Wordpress", "React", "JavaScript", "PHP", "CSS", "GIT", "Web Performance"]
+      skills: ["React", "Salesforce", "Snowflake", "Enterprise Connectors", "Data Pipeline", "JavaScript", "PHP", "Wordpress", "Gutenberg", "GA4", "GTM", "REST API", "Accessibility", "Performance Optimization"]
     },
     {
       role: "Machine Learning Intern",
@@ -102,7 +101,7 @@ export default function About() {
             <div className="header-text">
               <h1 className="about-title">About Me</h1>
               <p className="about-subtitle">
-                Wordpress Developer building scalable, high-performance user interfaces with product thinking.
+                Frontend Software Engineer specializing in React.js and WordPress development, with expertise in building scalable enterprise applications
               </p>
             </div>
             <div className="header-image">
@@ -137,15 +136,15 @@ export default function About() {
             <div className="tab-pane fade-in">
               <div className="bio-card">
                 <p className="bio-text">
-                  Hello! I’m a WordPress Developer who enjoys building thoughtful, well-structured, and user-focused web experiences. I work primarily on custom WordPress themes and plugins, with an emphasis on performance, maintainability, and clean design that actually serves real users.
+                  I'm a Frontend Software Engineer with 4 years of experience building enterprise web applications. I specialize in React.js for complex interactive applications and WordPress for content-driven platforms, with expertise in Gutenberg block development, PHP, and modern frontend architecture.
                 </p>
                 
                 <p className="bio-text">
-                  Beyond standard WordPress setups, I often build custom plugin logic, extend core functionality, and integrate third-party REST APIs to connect WordPress with external tools, services, and dashboards. I like making WordPress behave more like a flexible application platform rather than just a CMS.
+                  At Wipro (Blackstone), I've architected performance-optimized React components serving millions of users, implemented cookie-based access control systems, and built scalable WordPress solutions with custom Gutenberg blocks. I focus on clean code, accessibility (WCAG/ADA compliance), and measurable performance improvements—from 60% DOM reduction to improved page load times.
                 </p>
 
                 <p className="bio-text">
-                  I care a lot about code quality and long-term scalability. Whether it’s a marketing site, a content-heavy platform, or a product-driven build, I focus on writing code that’s easy to understand, easy to extend, and reliable for teams over time. I’m always refining my approach—exploring better patterns, modern frontend practices, and performance improvements—to make sure what I build stays solid well into the future.
+                  I care deeply about code quality, scalability, and user experience. Whether building a React application, developing WordPress solutions, or optimizing performance, I focus on writing maintainable code that solves real problems. I'm always exploring better patterns, modern frontend practices, and performance optimization techniques to ensure what I build is reliable and future-proof.
                 </p>
 
                 <div className="bio-info">

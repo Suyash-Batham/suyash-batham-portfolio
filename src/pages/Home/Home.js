@@ -4,8 +4,8 @@ import "./Home.css";
 export default function Home() {
   const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Suyash_Batham_Resume.pdf';
-    link.download = 'Suyash_Batham_Resume.pdf';
+    link.href = '/Suyash_Batham.pdf';
+    link.download = 'Suyash_Batham.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -24,14 +24,12 @@ export default function Home() {
 
             <h1 className="home-title fade-in">
               Building scalable <br />
-              <span className="gradient-text">WordPress & React experiences</span> <br />
-              that users actually enjoy.
+              <span className="gradient-text">React & WordPress solutions</span> <br />
+              that drive enterprise performance.
             </h1>
 
             <p className="home-description fade-in delay-1">
-              I'm a Wordpress Developer specializing in creating high-performance,
-              visually stunning web applications. I build clean, scalable, and user-friendly
-              digital experiences.
+              Full-stack Frontend Engineer with 4 years building enterprise web applications. Specialized in React.js, WordPress/Gutenberg development, and high-performance component architecture. I create clean, accessible, and scalable digital experiences for platforms serving millions.
             </p>
 
             <div className="cta-buttons fade-in delay-2">
@@ -50,30 +48,32 @@ export default function Home() {
 
           {/* Right Section - Code Card */}
           <div className="home-right fade-in delay-3">
-            <div className="code-card">
-              <div className="code-header">
-                <div className="code-dots">
-                  <div className="dot red"></div>
-                  <div className="dot yellow"></div>
-                  <div className="dot green"></div>
+            <div className="code-card-container">
+              <div className="code-card">
+                <div className="code-header">
+                  <div className="code-dots">
+                    <div className="dot red"></div>
+                    <div className="dot yellow"></div>
+                    <div className="dot green"></div>
+                  </div>
+                  <span className="code-filename">developer.js</span>
                 </div>
-                <span className="code-filename">developer.js</span>
-              </div>
-              <div className="code-content">
-                <p><span className="keyword">const</span> <span className="class">Developer</span> = <span className="symbol">{"{"}</span></p>
-                <div className="code-block">
-                  <p><span className="property">name</span>: <span className="string">"Suyash Batham"</span>,</p>
-                  <p><span className="property">title</span>: <span className="string">"Frontend Developer"</span>,</p>
-                  <p><span className="property">skills</span>: [<span className="string">"React"</span>, <span className="string">"JavaScript"</span>, <span className="string">"CSS"</span>],</p>
-                  <p><span className="property">passion</span>: <span className="string">"Building amazing UX"</span>,</p>
-                  <p><span className="property">hardworking</span>: <span className="boolean">true</span></p>
+                <div className="code-content">
+                  <p><span className="keyword">const</span> <span className="class">Developer</span> = <span className="symbol">{"{"}</span></p>
+                  <div className="code-block">
+                    <p><span className="property">name</span>: <span className="string">"Suyash Batham"</span>,</p>
+                    <p><span className="property">experience</span>: <span className="string">"4 Years"</span>,</p>
+                    <p><span className="property">expertise</span>: [<span className="string">"React"</span>, <span className="string">"WordPress"</span>, <span className="string">"Gutenberg"</span>],</p>
+                    <p><span className="property">focus</span>: <span className="string">"Performance & Accessibility"</span>,</p>
+                    <p><span className="property">buildingAt</span>: <span className="string">"Wipro (Blackstone)"</span></p>
+                  </div>
+                  <p><span className="symbol">{"}"}</span></p>
+                  
+                  <p><span className="keyword">export default</span> <span className="class">Developer</span>;</p>
                 </div>
-                <p><span className="symbol">{"}"}</span></p>
-                
-                <p><span className="keyword">export default</span> <span className="class">Developer</span>;</p>
               </div>
+              <div className="code-glow"></div>
             </div>
-            <div className="code-glow"></div>
           </div>
         </div>
       </div>

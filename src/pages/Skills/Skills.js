@@ -11,57 +11,70 @@ export default function Skills() {
 
   const skillsData = [
     {
-      category: "Frontend Development",
-      icon: "🎨",
+      category: "React & JavaScript",
+      icon: "⚛️",
       skills: [
-        { name: "React", proficiency: 90 },
-        { name: "JavaScript", proficiency: 87 },
-        { name: "Wordpress", proficiency: 94 },
-        { name: "HTML/CSS", proficiency: 90 },
-        { name: "PHP", proficiency: 95 }
+        { name: "React.js", proficiency: 92 },
+        { name: "React Hooks & Context API", proficiency: 90 },
+        { name: "Redux", proficiency: 88 },
+        { name: "JavaScript (ES6+)", proficiency: 89 },
+        { name: "JSX & Component Architecture", proficiency: 91 }
       ]
     },
     {
-      category: "Tools & Technologies",
+      category: "WordPress & Gutenberg",
+      icon: "📄",
+      skills: [
+        { name: "WordPress Development", proficiency: 94 },
+        { name: "Gutenberg Block Development", proficiency: 92 },
+        { name: "PHP", proficiency: 95 },
+        { name: "WordPress REST API", proficiency: 89 },
+        { name: "Custom Post Types & Taxonomies", proficiency: 91 },
+        { name: "WooCommerce Integration", proficiency: 85 }
+      ]
+    },
+    {
+      category: "Frontend Performance & UX",
+      icon: "⚡",
+      skills: [
+        { name: "Performance Optimization", proficiency: 89 },
+        { name: "Lazy Loading & Code Splitting", proficiency: 88 },
+        { name: "Responsive Design", proficiency: 92 },
+        { name: "CSS3 & Animations", proficiency: 90 },
+        { name: "Accessibility (WCAG/ADA)", proficiency: 88 }
+      ]
+    },
+    {
+      category: "Tools & DevOps",
       icon: "🛠️",
       skills: [
         { name: "Git/GitHub", proficiency: 94 },
         { name: "VS Code", proficiency: 95 },
-        { name: "Docker (Basics)", proficiency: 70 },
-        { name: "npm/yarn", proficiency: 88 },
-        { name: "CI/CD Pipelines", proficiency: 75 }
+        { name: "NPM/Yarn", proficiency: 88 },
+        { name: "CI/CD Pipelines", proficiency: 80 },
+        { name: "Docker (Basics)", proficiency: 72 }
       ]
     },
     {
-      category: "Design & UX",
-      icon: "✨",
+      category: "Analytics & Testing",
+      icon: "📊",
       skills: [
-        { name: "UI/UX Design Principles", proficiency: 85 },
-        { name: "Figma", proficiency: 82 },
-        { name: "Web Design", proficiency: 88 },
-        { name: "Responsive Layout", proficiency: 92 },
-        { name: "Animation / Microinteractions", proficiency: 75 }
+        { name: "Google Analytics 4 (GA4)", proficiency: 87 },
+        { name: "Google Tag Manager (GTM)", proficiency: 86 },
+        { name: "Jest & React Testing Library", proficiency: 82 },
+        { name: "Debugging & Chrome DevTools", proficiency: 91 },
+        { name: "Cross-browser Testing", proficiency: 88 }
       ]
     },
     {
-      category: "Performance & SEO",
-      icon: "⚡",
-      skills: [
-        { name: "Web Performance", proficiency: 87 },
-        { name: "SEO Optimization", proficiency: 84 },
-        { name: "Accessibility (a11y)", proficiency: 86 },
-        { name: "Testing", proficiency: 80 }
-      ]
-    },
-    {
-      category: "Professional & Soft Skills",
+      category: "Professional Skills",
       icon: "💼",
       skills: [
-        { name: "Team Collaboration", proficiency: 90 },
-        { name: "AI-Powered Development", proficiency: 85 },
-        { name: "Problem Solving", proficiency: 88 },
-        { name: "Mentoring / Code Reviews", proficiency: 80 },
-        { name: "Client Communication", proficiency: 97 }
+        { name: "Team Collaboration", proficiency: 92 },
+        { name: "Agile Development", proficiency: 89 },
+        { name: "Code Reviews & Mentoring", proficiency: 85 },
+        { name: "Client Communication", proficiency: 93 },
+        { name: "Problem Solving", proficiency: 90 }
       ]
     }
   ];

@@ -1,63 +1,90 @@
 # 🎉 Suyash Batham's Portfolio
 
-A modern, interactive React portfolio showcasing projects, games, skills, and a contact form with submission management. Built to impress FAANG companies and startups.
+A modern, enterprise-focused React portfolio showcasing expertise in React.js, WordPress development, performance optimization, and accessibility. Built to demonstrate 4 years of professional frontend engineering experience.
 
-**Live Demo:** [View Live Site](https://suyashbatham-dev.vercel.app/) | **GitHub:** [suyash-batham-portfolio](https://github.com/Suyash-Batham/suyash-batham-portfolio)
+**Live Demo:** [View Live Site](https://suyashbatham-dev.vercel.app/) | **GitHub:** [suyash-batham-portfolio](https://github.com/Suyash-Batham/suyash-batham-portfolio) | **Resume:** [Download PDF](public/Suyash_Batham.pdf)
 
 ---
 
-## ✨ Features
+## ✨ Key Expertise
 
-### 🎮 **Interactive Game Playground**
-- **Tic Tac Toe** - Classic game with win detection
-- **Color Guesser** - Guess RGB colors, earn points
-- **Memory Match** - Flip cards, find pairs
-- **Tech Quiz** - Test your knowledge
-- **Gamified Kanban Board** - Task management with points, streaks, and productivity tracking
+### ⚛️ **React & JavaScript**
+- 4+ years building enterprise React applications
+- Component architecture & performance optimization
+- React Hooks, Context API, Redux state management
+- Performance improvements: 60% DOM reduction, improved FCP by 47%
 
-### 📊 **Projects Showcase**
-- 6 detailed projects with features & tech stack
-- Weather App, Sentiment Analysis, Dashboard, Task Manager, Movie Search, E-Commerce
-- Clean card-based design with hover effects
+### 📄 **WordPress & Gutenberg**
+- Custom Gutenberg block development
+- WordPress REST API integration
+- PHP backend development & custom plugins
+- Dynamic content systems for large-scale platforms
 
-### 💬 **Contact Form with Admin Dashboard**
-- Submit messages with name, email, subject, message
-- **Password-protected admin panel** - Only you can view submissions
-- Search, filter, export as CSV
-- LocalStorage persistence + deployment-ready
+### ⚡ **Performance & Accessibility**
+- WCAG 2.1 AA compliance (50+ accessibility fixes resolved)
+- Performance optimization (lazy loading, code splitting, caching)
+- Cross-browser compatibility including iOS
+- Google Analytics 4 & GTM tracking implementation
 
-### 🎨 **Modern UI/UX**
-- Dark mode support
-- Fully responsive (mobile, tablet, desktop)
-- Smooth animations & transitions
-- Glass morphism design with Glassmorphic cards
-- Accessibility features (ARIA labels, keyboard navigation)
+---
 
-### 📈 **Performance Features**
-- Optimized React hooks (useState, useReducer, useMemo, useCallback)
-- LocalStorage for data persistence
-- Environment variables for secure config
-- Production-ready code structure
+## 🛠️ Features
+
+### 💼 **Professional Projects**
+- Real-world project case studies showcasing React & WordPress expertise
+- Enterprise-scale examples (Blackstone, Wipro projects - anonymized)
+- Performance metrics and impact demonstrations
+- Technology stack breakdowns for each project
+
+### 🎮 **Interactive React Playground**
+- Advanced state management demos (useReducer, useCallback, useMemo)
+- Tic Tac Toe, Color Guesser, Memory Match, Quiz Game
+- Gamified Kanban board with drag-and-drop and undo/redo
+- Demonstrates scalable component patterns and complex state handling
+
+### 📊 **Skills Showcase**
+- React & JavaScript expertise with proficiency levels
+- WordPress & Gutenberg development skills
+- Performance optimization & accessibility
+- DevOps, testing, and professional skills
+
+### 📋 **Contact Form & Admin Dashboard**
+- Password-protected admin panel for form submissions
+- Search, filter, and export functionality
+- Demonstrates secure frontend patterns
+- LocalStorage persistence with production-ready code
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- React 19.2.3
+**Frontend (React):**
+- React 19.2.3 with React Hooks & Context API
 - React Router DOM 7.11.0
-- CSS3 (Animations, Grid, Flexbox)
+- CSS3 (Grid, Flexbox, Animations)
 - JavaScript ES6+
+- State Management (Redux patterns, useReducer)
+
+**WordPress & Backend:**
+- WordPress with Gutenberg block development
+- PHP backend
+- WordPress REST API
+- Custom post types & taxonomies
+- Dynamic content systems
 
 **Storage & Deployment:**
-- LocalStorage for form submissions
+- LocalStorage for client-side persistence
 - Git & GitHub for version control
-- Netlify/Vercel ready
+- Vercel for deployment
+- Environment variables for secure config
 
-**Tools:**
+**Tools & Practices:**
 - Create React App
-- Modern ES6+ JavaScript
-- Responsive Design
+- ES6+ JavaScript with modern patterns
+- Responsive Design (Mobile-first)
+- Accessibility (WCAG compliance)
+- Google Analytics 4 & GTM integration
+- Performance optimization (lazy loading, code splitting)
 
 ---
 
