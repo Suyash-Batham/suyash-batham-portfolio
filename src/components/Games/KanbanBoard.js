@@ -283,7 +283,7 @@ export default function KanbanBoard() {
             )
           : 0
     };
-  }, [state.tasks, tasksByColumn]);
+  }, [state.tasks, tasksByColumn, state.points]);
 
   return (
     <div className="kanban-container">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./Games.css";
 
 export default function ColorGuesser() {
@@ -15,11 +15,7 @@ export default function ColorGuesser() {
     )}, ${Math.floor(Math.random() * 256)})`;
   };
 
-  useEffect(() => {
-    startNewRound();
-  }, []);
-
-  const startNewRound = () => {
+  const startNewRound = useCallback(() => {
     const target = generateColor();
     const wrongColors = [generateColor(), generateColor()];
     const allOptions = [target, ...wrongColors].sort(() => Math.random() - 0.5);
@@ -28,7 +24,11 @@ export default function ColorGuesser() {
     setOptions(allOptions);
     setMessage("");
     setGameWon(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    startNewRound();
+  }, [startNewRound]);
 
   const handleGuess = (color) => {
     setAttempts(attempts + 1);

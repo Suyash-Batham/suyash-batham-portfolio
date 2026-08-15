@@ -1,20 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./Games.css";
 
+const SYMBOLS = ["🎨", "🎭", "🎪", "🎯", "🎲", "🎸", "🎺", "🎻"];
+
 export default function MemoryMatch() {
-  const symbols = ["🎨", "🎭", "🎪", "🎯", "🎲", "🎸", "🎺", "🎻"];
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
 
-  useEffect(() => {
-    initializeGame();
-  }, []);
-
-  const initializeGame = () => {
-    const shuffled = [...symbols, ...symbols]
+  const initializeGame = useCallback(() => {
+    const shuffled = [...SYMBOLS, ...SYMBOLS]
       .sort(() => Math.random() - 0.5)
       .map((symbol, index) => ({ id: index, symbol }));
 
@@ -23,7 +20,11 @@ export default function MemoryMatch() {
     setMatched([]);
     setMoves(0);
     setGameWon(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    initializeGame();
+  }, [initializeGame]);
 
   const handleCardClick = (index) => {
     if (
