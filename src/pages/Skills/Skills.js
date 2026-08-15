@@ -29,8 +29,7 @@ export default function Skills() {
         { name: "Gutenberg Block Development", proficiency: 92 },
         { name: "PHP", proficiency: 95 },
         { name: "WordPress REST API", proficiency: 89 },
-        { name: "Custom Post Types & Taxonomies", proficiency: 91 },
-        { name: "WooCommerce Integration", proficiency: 85 }
+        { name: "Custom Post Types & Taxonomies", proficiency: 91 }
       ]
     },
     {
