@@ -34,14 +34,14 @@ export default function Playground() {
       functionality: "useState, useEffect, Array Methods",
       component: MemoryMatch
     },
-    // {
-    //   id: "quiz",
-    //   name: "Tech Quiz",
-    //   icon: "🚀",
-    //   description: "Test your tech knowledge",
-    //   functionality: "useState, Conditional Rendering, Ternary Operators",
-    //   component: QuizGame
-    // },
+    {
+      id: "quiz",
+      name: "Tech Quiz",
+      icon: "🚀",
+      description: "Test your tech knowledge",
+      functionality: "useState, Conditional Rendering, Ternary Operators",
+      component: QuizGame
+    },
     {
       id: "kanban",
       name: "Gamified Kanban",
