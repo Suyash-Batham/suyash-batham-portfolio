@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound/Notfound";
 import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const location = useLocation();
 
   // Scroll to top on route change
